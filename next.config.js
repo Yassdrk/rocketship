@@ -6,7 +6,6 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   reactStrictMode: true,
-  target: "serverless",
 };
 
 module.exports = nextConfig;
