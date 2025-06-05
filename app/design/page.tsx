@@ -166,7 +166,7 @@ const ClientBackgroundEffects = () => {
   return <BackgroundEffects />;
 };
 
-export default function MarketplacePage() {
+export default function DesignPage() {
   const placeholder = useTypewriterPlaceholders(PLACEHOLDER_VARIANTS);
 
   return (
@@ -175,18 +175,15 @@ export default function MarketplacePage() {
 
       <section className="flex flex-col gap-4 py-8 z-10 relative">
         <div className="inline-block max-w-xl">
-          <h1 className="text-5xl font-cal text-white mb-4">Discovery</h1>
+          <h1 className="text-5xl font-cal text-white mb-4">Designs</h1>
           <p className="text-base text-gray-300 ">
-            Discover and remix trending character designs from creators around
-            the world. Browse, get inspired, and make your own unique creations!
+            Browse all the designs you've made with Rocketship. Share them or
+            print them to bring them to life!
           </p>
         </div>
 
         {/* Trending Designs Section */}
         <div className="mt-8">
-          <h2 className="text-2xl font-cal text-white mb-8">
-            Trending Designs
-          </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {images.map((src, idx) => (
               <div
@@ -199,24 +196,6 @@ export default function MarketplacePage() {
                   transition-all duration-200
                 "
               >
-                {/* User Info */}
-                <Link
-                  href={`/profile/${src.pseudo.replace("@", "")}`}
-                  className="flex items-center gap-3 mb-3"
-                >
-                  <img
-                    src={src.avatar}
-                    alt={src.author}
-                    className="w-8 h-8 object-cover rounded-lg border border-[#222222]"
-                  />
-                  <div>
-                    <span className="text-white text-sm block">
-                      {src.author}
-                    </span>
-                    <span className="text-gray-500 text-xs">{src.pseudo}</span>
-                  </div>
-                </Link>
-
                 {/* Image Card */}
                 <div className="relative">
                   <img
@@ -226,7 +205,7 @@ export default function MarketplacePage() {
                   />
 
                   {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-[#111111] opacity-0 group-hover:opacity-95 transition-opacity flex items-center justify-center rounded-lg">
+                  <div className="absolute inset-0 bg-[#111111] opacity-0 group-hover:opacity-95 transition-opacity flex items-center justify-center gap-3 rounded-lg">
                     <button
                       className="
                       px-6 py-2 rounded-2xl
@@ -238,6 +217,18 @@ export default function MarketplacePage() {
                     >
                       Remix
                     </button>
+                    <Link
+                      href={`/design/${idx}`}
+                      className="
+                      px-6 py-2 rounded-2xl
+                      bg-[#333333]
+                      text-sm font-medium text-white
+                      hover:bg-[#444444]
+                      transition-colors
+                    "
+                    >
+                      Share
+                    </Link>
                   </div>
                 </div>
               </div>

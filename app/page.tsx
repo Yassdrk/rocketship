@@ -100,6 +100,7 @@ const StarRain = () => {
     left: Math.random() * 100,
     delay: Math.random() * 5,
     duration: 3 + Math.random() * 4,
+    size: 1 + Math.random() * 1.5,
   }));
 
   return (
@@ -110,7 +111,7 @@ const StarRain = () => {
           initial={{ top: "-2%", left: `${star.left}%`, opacity: 0 }}
           animate={{
             top: "102%",
-            opacity: [0, 0.4, 0.4, 0],
+            opacity: [0, 0.5, 0.5, 0],
           }}
           transition={{
             duration: star.duration,
@@ -118,7 +119,11 @@ const StarRain = () => {
             repeat: Infinity,
             ease: "linear",
           }}
-          className="absolute w-[1px] h-[1px] bg-white rounded-full shadow-[0_0_2px_1px_rgba(255,255,255,0.2)]"
+          style={{
+            width: `${star.size}px`,
+            height: `${star.size}px`,
+          }}
+          className="absolute bg-white rounded-full shadow-[0_0_4px_2px_rgba(255,255,255,0.2)] blur-[0.2px]"
         />
       ))}
     </div>
